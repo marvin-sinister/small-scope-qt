@@ -109,8 +109,6 @@ void RenderArea::mouseMoveEvent(QMouseEvent * event) {
 void RenderArea::paintEvent(QPaintEvent * /* event */) {
     QPainter painter(this);
 
-    painter.setRenderHint(QPainter::Antialiasing, true);
-
     QMatrix m;
     m.translate(0, height()-1);
     m.scale(1, -1);
