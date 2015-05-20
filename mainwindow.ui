@@ -187,6 +187,26 @@ QGroupBox::title {
                 </property>
                </widget>
               </item>
+              <item>
+               <widget class="QPushButton" name="pbTriggerNone">
+                <property name="toolTip">
+                 <string>Continuous</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="icon">
+                 <iconset>
+                  <normaloff>icons/trigger-none-icon.png</normaloff>icons/trigger-none-icon.png</iconset>
+                </property>
+                <property name="iconSize">
+                 <size>
+                  <width>16</width>
+                  <height>24</height>
+                 </size>
+                </property>
+               </widget>
+              </item>
              </layout>
             </widget>
            </item>
@@ -1696,8 +1716,8 @@ QGroupBox::title {
    <slot>setVRefAREF()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>755</x>
-     <y>85</y>
+     <x>892</x>
+     <y>97</y>
     </hint>
     <hint type="destinationlabel">
      <x>523</x>
@@ -1712,8 +1732,8 @@ QGroupBox::title {
    <slot>setVRefAVCC()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>716</x>
-     <y>85</y>
+     <x>853</x>
+     <y>97</y>
     </hint>
     <hint type="destinationlabel">
      <x>523</x>
@@ -1808,8 +1828,8 @@ QGroupBox::title {
    <slot>setTriggerEventFalling()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>882</x>
-     <y>85</y>
+     <x>85</x>
+     <y>97</y>
     </hint>
     <hint type="destinationlabel">
      <x>523</x>
@@ -1824,8 +1844,8 @@ QGroupBox::title {
    <slot>setTriggerEventRising()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>843</x>
-     <y>85</y>
+     <x>48</x>
+     <y>97</y>
     </hint>
     <hint type="destinationlabel">
      <x>523</x>
@@ -1840,8 +1860,8 @@ QGroupBox::title {
    <slot>setTriggerEventToggle()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>921</x>
-     <y>85</y>
+     <x>122</x>
+     <y>97</y>
     </hint>
     <hint type="destinationlabel">
      <x>523</x>
@@ -1856,8 +1876,8 @@ QGroupBox::title {
    <slot>setVRefInternal()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>794</x>
-     <y>85</y>
+     <x>930</x>
+     <y>97</y>
     </hint>
     <hint type="destinationlabel">
      <x>523</x>
@@ -1872,8 +1892,8 @@ QGroupBox::title {
    <slot>setHoldoffValue(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>627</x>
-     <y>85</y>
+     <x>805</x>
+     <y>94</y>
     </hint>
     <hint type="destinationlabel">
      <x>523</x>
@@ -1888,8 +1908,8 @@ QGroupBox::title {
    <slot>setPrescalerValue(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>153</x>
-     <y>85</y>
+     <x>374</x>
+     <y>94</y>
     </hint>
     <hint type="destinationlabel">
      <x>523</x>
@@ -1904,8 +1924,8 @@ QGroupBox::title {
    <slot>setTriggerLevel(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>388</x>
-     <y>85</y>
+     <x>590</x>
+     <y>94</y>
     </hint>
     <hint type="destinationlabel">
      <x>523</x>
@@ -1920,8 +1940,8 @@ QGroupBox::title {
    <slot>update()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>627</x>
-     <y>85</y>
+     <x>805</x>
+     <y>94</y>
     </hint>
     <hint type="destinationlabel">
      <x>521</x>
@@ -1936,8 +1956,8 @@ QGroupBox::title {
    <slot>setPrescalerValue(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>153</x>
-     <y>85</y>
+     <x>374</x>
+     <y>94</y>
     </hint>
     <hint type="destinationlabel">
      <x>521</x>
@@ -1952,12 +1972,28 @@ QGroupBox::title {
    <slot>update()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>388</x>
-     <y>85</y>
+     <x>590</x>
+     <y>94</y>
     </hint>
     <hint type="destinationlabel">
      <x>521</x>
      <y>621</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pbTriggerNone</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>setTriggerEventNone()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>141</x>
+     <y>81</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>514</x>
+     <y>518</y>
     </hint>
    </hints>
   </connection>
@@ -1978,5 +2014,6 @@ QGroupBox::title {
   <slot>setHoldoffValue(int)</slot>
   <slot>setTriggerLevel(int)</slot>
   <slot>setPrescalerValue(int)</slot>
+  <slot>setTriggerEventNone()</slot>
  </slots>
 </ui>

@@ -61,6 +61,7 @@ private slots:
     void setTriggerEventToggle();
     void setTriggerEventFalling();
     void setTriggerEventRising();
+    void setTriggerEventNone();
     void setVRefAREF();
     void setVRefAVCC();
     void setVRefInternal();

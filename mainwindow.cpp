@@ -145,6 +145,10 @@ void MainWindow::setTriggerEventRising() {
     writeData(QByteArray("e3",2));
 }
 
+void MainWindow::setTriggerEventNone() {
+    writeData(QByteArray("e4",2));
+}
+
 void MainWindow::setVRefAREF() {
     writeData(QByteArray("r0",2));
 }
