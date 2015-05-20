@@ -173,7 +173,7 @@ void MainWindow::setValues2 (int value) {
 }
 
 void MainWindow::setTitle(float fps) {
-    this->setWindowTitle (QString::number(fps));
+    this->setWindowTitle ("small-scope-qt - " + QString::number(fps) + "fps");
 }
 
 void MainWindow::setupCOM() {
