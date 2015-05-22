@@ -32,19 +32,24 @@ SettingsDialog::SettingsDialog(QWidget *parent) : QDialog(parent), ui(new Ui::Se
 
     ui->setupUi(this);
 
+    // create baud rate validator
     intValidator = new QIntValidator(0, 4000000, this);
 
+    // set insert policy for baud rate list
     ui->lbBaudRate->setInsertPolicy(QComboBox::NoInsert);
 
+    // connect signals to slots
     connect(ui->pbOk, SIGNAL(clicked()), this, SLOT(ok()));
     connect(ui->pbCancel, SIGNAL(clicked()), this, SLOT(cancel()));
     connect(ui->pbRefresh, SIGNAL(clicked()), this, SLOT(refresh()));
     connect(ui->lbSerialPortInfo, SIGNAL(currentIndexChanged(int)), this, SLOT(showPortInfo(int)));
     connect(ui->lbBaudRate, SIGNAL(currentIndexChanged(int)), this, SLOT(checkCustomBaudRatePolicy(int)));
 
+    // fill the data in form
     fillPortsParameters();
     fillPortsInfo();
 
+    //update current settings with defaults
     updateSettings();
 }
 
@@ -52,10 +57,12 @@ SettingsDialog::~SettingsDialog() {
     delete ui;
 }
 
+// get current settings
 SettingsDialog::Settings SettingsDialog::settings() const {
     return currentSettings;
 }
 
+// show info about selected port
 void SettingsDialog::showPortInfo(int idx) {
     if (idx != -1) {
         QStringList list = ui->lbSerialPortInfo->itemData(idx).toStringList();
@@ -67,15 +74,18 @@ void SettingsDialog::showPortInfo(int idx) {
     }
 }
 
+// ok pressed, save setings and close
 void SettingsDialog::ok() {
     updateSettings();
     close();
 }
 
+// cancel pressed, close
 void SettingsDialog::cancel() {
     close();
 }
 
+// check if custom baud rate is within range
 void SettingsDialog::checkCustomBaudRatePolicy(int idx) {
     bool isCustomBaudRate = !ui->lbBaudRate->itemData(idx).isValid();
     ui->lbBaudRate->setEditable(isCustomBaudRate);
@@ -86,11 +96,14 @@ void SettingsDialog::checkCustomBaudRatePolicy(int idx) {
     }
 }
 
+// refresh the list of available ports
 void SettingsDialog::refresh() {
     loadSettings();
     fillPortsInfo();
 }
 
+// TODO: load current settings to form
+// show current setings
 void SettingsDialog::loadSettings() {
     qDebug() << "name " << currentSettings.name;
     qDebug() << "baud rate " << currentSettings.baudRate;
@@ -101,6 +114,7 @@ void SettingsDialog::loadSettings() {
     qDebug() << "local echo " << currentSettings.localEchoEnabled;
 }
 
+// fill the form data
 void SettingsDialog::fillPortsParameters() {
     // fill baud rate (is not the entire list of available values,
     // desired values??, add your independently)
@@ -138,6 +152,7 @@ void SettingsDialog::fillPortsParameters() {
     ui->lbFlowControl->addItem(QLatin1String("XON/XOFF"), QSerialPort::SoftwareControl);
 }
 
+// fill the form data
 void SettingsDialog::fillPortsInfo() {
     ui->lbSerialPortInfo->clear();
     foreach (const QSerialPortInfo &info, QSerialPortInfo::availablePorts()) {
@@ -153,6 +168,7 @@ void SettingsDialog::fillPortsInfo() {
     }
 }
 
+// update current settings with data from form
 void SettingsDialog::updateSettings() {
     currentSettings.name = ui->lbSerialPortInfo->currentText();
 
