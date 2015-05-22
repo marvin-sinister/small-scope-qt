@@ -50,10 +50,11 @@ protected:
     void mousePressEvent(QMouseEvent *event);
 
 signals:
-     void fpsChanged(float);
-     void mouseMoved(int);
-     void lPositionChanged(int);
-     void rPositionChanged(int);
+    void fpsChanged(float);
+    void mouseMoved(int);
+    void lPositionChanged(int);
+    void rPositionChanged(int);
+    void recalculateValues();
 
 private:
     QPen centerPen;
@@ -64,13 +65,13 @@ private:
     QPen rPen;
     QPen cursorPen;
     QBrush brush;
-    bool antialiased;
-    bool transformed;
     QPoint* dots;
     QPoint mousePosition;
     int frames;
     QTime time;
     int timePerDivision;
+    QMatrix transformMatrix;
+
 };
 
 #endif
