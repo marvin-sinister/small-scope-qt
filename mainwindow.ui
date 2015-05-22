@@ -148,16 +148,16 @@ QGroupBox::title {
                </widget>
               </item>
               <item>
-               <widget class="QPushButton" name="pbTriggerFaling">
+               <widget class="QPushButton" name="pbTriggerFalling">
                 <property name="toolTip">
-                 <string>Faling</string>
+                 <string>Falling</string>
                 </property>
                 <property name="text">
                  <string/>
                 </property>
                 <property name="icon">
                  <iconset>
-                  <normaloff>icons/trigger-faling-icon.png</normaloff>icons/trigger-faling-icon.png</iconset>
+                  <normaloff>icons/trigger-falling-icon.png</normaloff>icons/trigger-falling-icon.png</iconset>
                 </property>
                 <property name="iconSize">
                  <size>
@@ -1822,7 +1822,7 @@ QGroupBox::title {
    </hints>
   </connection>
   <connection>
-   <sender>pbTriggerFaling</sender>
+   <sender>pbTriggerFalling</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
    <slot>setTriggerEventFalling()</slot>
