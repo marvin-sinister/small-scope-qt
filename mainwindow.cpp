@@ -76,6 +76,8 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
 
     // recalculate all values measured
     connect(this, SIGNAL(valuesChanged()), this, SLOT(recalculateValues()));
+    connect(ui->renderArea, SIGNAL(recalculateValues()), this, SLOT(recalculateValues()));
+
 
     // serial port error
     connect(serial, SIGNAL(error(QSerialPort::SerialPortError)), this, SLOT(handleError(QSerialPort::SerialPortError)));
